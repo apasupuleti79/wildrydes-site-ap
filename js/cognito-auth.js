@@ -72,7 +72,7 @@ var WildRydes = window.WildRydes || {};
 
     function signin(email, password, onSuccess, onFailure) {
         var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails({
-            Username: toUsername(email),
+            Username: email.trim,
             Password: password
         });
 
@@ -95,13 +95,13 @@ var WildRydes = window.WildRydes || {};
 
     function createCognitoUser(email) {
         return new AmazonCognitoIdentity.CognitoUser({
-            Username: toUsername(email),
+            Username: email.trim,
             Pool: userPool
         });
     }
 
     function toUsername(email) {
-        return email.replace('@', '-at-');
+        return email.trim();
     }
 
     /*
