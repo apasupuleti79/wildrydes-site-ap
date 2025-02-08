@@ -60,7 +60,7 @@ var WildRydes = window.WildRydes || {};
 
     var dataGivenName = {
         Name: 'given_name',
-        Value: email.split('@')[0]  // Extract name from email (or use an input field)
+        Value: email.split('@')[0]  // Extract name from email OR use an input field
     };
 
     var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
@@ -76,6 +76,7 @@ var WildRydes = window.WildRydes || {};
         }
     );
 }
+
 
 
     function signin(email, password, onSuccess, onFailure) {
